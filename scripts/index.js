@@ -23,14 +23,7 @@ window.addEventListener('resize', (event) => {
 
 document.addEventListener('DOMContentLoaded', (event) => {
   const currentRoute = window.location.pathname.replace('/planets/', '').replace('.html', '');
-
-  var items = document.querySelectorAll('.list-item a');
-
-  for (var item of items) {
-    if (item.innerHTML.toLowerCase() === currentRoute) {
-      item.classList.add('background-ative');
-    }
-  }
+  // TODO: Load informations here
 })
 
 function openMenu() {
