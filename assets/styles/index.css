@@ -53,6 +53,22 @@ a:hover {
   color: #6D2ED3;
 }
 
+#hamburguer-menu {
+  display: none;
+  /* padding: 1em; */
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+#hamburguer-menu:hover {
+  cursor: pointer;
+}
+
+.material-symbols-outlined.white.size-32{
+  font-size: 3.2rem;
+}
+
 /* Media queries */
 
 @media (max-width: 1100px) {
@@ -75,5 +91,10 @@ a:hover {
 
   .list-container{
     display: none;
+  }
+
+  #hamburguer-menu {
+    display: flex;
+    
   }
 }
