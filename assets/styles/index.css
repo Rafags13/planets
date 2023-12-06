@@ -5,7 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Antonio', sans-serif;
-  background-color: black;
+  background-color: rgb(7, 7, 36);
 }
 
 html {
@@ -30,16 +30,17 @@ html {
   font-size: 1.3em;
 }
 
-.home-link-logo {
-  font-size: 2.5em;
-  font-weight: 500;
-  letter-spacing: 1px;
+.list-item > a {
+  font-family: 'League Spartan', sans-serif;
+  color: #9697a8;
+}
+
+.list-item > a:hover {
+  color: #6D2ED3;
 }
 
 a {
-  font-family: 'League Spartan', sans-serif;
   text-decoration: none;
-  color: #9697a8;
   font-weight: 700;
   letter-spacing: 1px;
   transition: color .15s ease-out;
@@ -49,8 +50,20 @@ li {
   list-style-type: none;
 }
 
-a:hover {
-  color: #6D2ED3;
+.home-link-logo > a{
+  font-size: 2.5em;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.current-description {
+  font-weight: 300;
+  font-size: 2em;
+  width: 20em;
+  line-height: 1.25;
+  color: #C1C1D8;
+  font-family: 'League Spartan', sans-serif;
 }
 
 #hamburguer-menu {
@@ -69,14 +82,18 @@ a:hover {
   font-size: 3.2rem;
 }
 
+.material-symbols-outlined.size-12 {
+  font-size: 0.8em;
+}
+
 .menu-overriding-page {
   flex-direction: column;
   position: absolute;
-  background-color: black;
+  background-color: rgb(7, 7, 36);
   padding: 2em;
   gap: 2em;
   width: 100%;
-  height: calc(100% - (2*(3em) + 3.2rem));
+  height: 100vh;
 }
 
 .show {
@@ -92,9 +109,124 @@ a:hover {
   background-color: #6F2ED4;
 }
 
+.planet-content-information {
+  display: flex;
+  flex-direction: column;
+  gap: 10em;
+  padding-top: 10em;
+  padding-inline: 15em;
+  padding-bottom: 5em;
+}
+
+.planet-main-informations-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
+
+.planet-description-informations {
+  display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+
+.image-container {
+  padding-left: 15em;
+}
+
+.planet-informations-section {
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  gap: 3em;
+}
+
+.planet-title {
+  font-size: 6.4em;
+}
+
+.source-text {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5em;
+  color: rgb(92, 92, 131);
+  font-size: 1.8em;
+  font-family: 'League Spartan', sans-serif;
+}
+
+.wikipedia-link {
+  color: #7C7D93;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.change-informations-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.information-button {
+  display: flex;
+  background-color: transparent;
+  border: 1px solid #2f2e4c;
+  padding-inline: 2em;
+  padding-block: 1em;
+  color: white;
+  font-family: 'League Spartan', sans-serif;
+  width: 100%;
+  text-align: left;
+  gap: 2em; 
+}
+
+.active-button {
+  background-color: #6D2ED5;
+}
+
+.text-button {
+  color: white;
+  font-weight: 500;
+  background-color: transparent;
+  font-family: 'League Spartan', sans-serif;
+  letter-spacing: 0.2em;
+}
+
+.cards-planet-information {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-information {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 20%;
+  background-color: transparent;
+  border: 1px solid #2f2e4c;
+  padding: 2em;
+}
+
+.card-title {
+  color: #7C7D93;
+  font-weight: bold;
+  font-size: 1.5em;
+  font-family: 'League Spartan', sans-serif;
+}
+
+.card-value {
+  font-size: 3.2em;
+}
+
 /* Media queries */
 
-@media (max-width: 1100px) {
+@media (max-width: 1500px) {
+  .image-container {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 1200px) {
   .nav-container {
     flex-direction: column;
     gap: 3.5em;
@@ -106,10 +238,45 @@ a:hover {
     justify-content: center;
   }
 
+  .image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10em;
+  }
+
+  .planet-informations-section {
+    flex-direction: column;
+  }
+
+  .planet-main-informations-section {
+    flex-direction: row;
+  }
+
+  .change-informations-container {
+    align-self: center;
+    width: 100%;
+  }
   
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
+  .planet-content-information {
+      padding-inline: 2em;
+    }
+  .planet-main-informations-section {
+    flex-direction: column;
+  }
+  .current-description{
+    width: 100%;
+  }
+  
+}
+
+@media (max-width: 768px) {
+  .image-container>img {
+      height: 30em;
+      width: 30em;
+    }
   .nav-container {
     flex-direction: row;
   }
@@ -120,5 +287,24 @@ a:hover {
 
   #hamburguer-menu {
     display: flex;
+  }
+
+  .change-informations-container {
+    display: none;
+  }
+  .cards-planet-information {
+    flex-direction: column;
+  }
+  .card-information {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .card-value {
+    font-size: 1.6em;
   }
 }

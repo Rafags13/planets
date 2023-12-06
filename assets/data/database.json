@@ -1,0 +1,14 @@
+{
+  "planets": [
+    {
+      "name":"teste",
+      "overview":"",
+      "internalStructure":"",
+      "surfaceGeology":"",
+      "rotationTime":"",
+      "revolutionTime":"",
+      "radius":"",
+      "averageTemperature":""
+    }
+  ]
+}
