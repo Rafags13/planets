@@ -28,6 +28,7 @@ html {
 
 .list-item {
   font-size: 1.3em;
+  background-color: transparent;
 }
 
 .list-item > a {
@@ -87,21 +88,22 @@ li {
 }
 
 .menu-overriding-page {
-  flex-direction: column;
-  position: absolute;
-  background-color: rgb(7, 7, 36);
-  padding: 2em;
-  gap: 2em;
-  width: 100%;
-  height: 100vh;
+  overflow: hidden;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
+    position: absolute;
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 2em;
+    gap: 2em;
 }
 
 .show {
-  display: flex;
-}
-
-.hide {
-  display: none;
+  height: 35em;
+  padding: 2em;
 }
 
 .background-ative {
@@ -170,14 +172,20 @@ li {
 .information-button {
   display: flex;
   background-color: transparent;
-  border: 1px solid #2f2e4c;
+  border: 1px solid hsl(242, 25%, 24%);
   padding-inline: 2em;
   padding-block: 1em;
   color: white;
   font-family: 'League Spartan', sans-serif;
   width: 100%;
   text-align: left;
-  gap: 2em; 
+  gap: 2em;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.information-button:hover {
+  cursor: pointer;
+  background-color: rgba(47, 46, 77, 0.5);
 }
 
 .active-button {
@@ -216,6 +224,34 @@ li {
 
 .card-value {
   font-size: 3.2em;
+}
+
+.informations-mobile-tab {
+  display: none;
+  border: 1px solid #2f2e4c;
+  justify-content: space-between;
+  padding-inline: 2em;
+}
+
+.select-tab {
+  border: none;
+  color: white;
+  width: 30%;
+  border-bottom: 5px solid transparent;
+  transition: border ease-in 0.2s;
+}
+
+.tab {
+  font-family: 'League Spartan', sans-serif;
+  text-align: center;
+  padding-block: 2em calc(2em + 5px);
+  letter-spacing: 0.2em;
+  
+}
+
+.active {
+  border: 0;
+  border-bottom: 5px solid #6235B1;
 }
 
 /* Media queries */
@@ -268,15 +304,24 @@ li {
   }
   .current-description{
     width: 100%;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  .image-container>img {
+    height: 70vw;
+    width: 70vw;
   }
   
 }
 
 @media (max-width: 768px) {
-  .image-container>img {
-      height: 30em;
-      width: 30em;
-    }
+  .planet-content-information {
+    gap: 2em;
+    padding-top: 5em;
+  }
+  .image-container {
+    margin-bottom: 2em;
+  }
   .nav-container {
     flex-direction: row;
   }
@@ -300,6 +345,18 @@ li {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+  .informations-mobile-tab {
+    display: flex;
+  }
+  .planet-title {
+    text-align: center;
+  }
+  .current-description {
+    text-align: center;
+  }
+  .source-text {
+    justify-content: center;
   }
 }
 
