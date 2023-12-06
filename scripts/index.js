@@ -22,7 +22,7 @@ window.addEventListener('resize', (event) => {
 });
 
 document.addEventListener('DOMContentLoaded', (event) => {
-  const currentRoute = window.location.pathname.replace('/planet/', '').replace('.html', '');
+  const currentRoute = window.location.pathname.replace('../planet/', '').replace('.html', '');
   // TODO: Load informations here
 })
 
