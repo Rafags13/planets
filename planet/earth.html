@@ -17,14 +17,15 @@
     href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@500;700&display=swap"
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script type="module" src="/scripts/index.js"></script>
 </head>
 
 <body>
   <header>
     <nav class="nav-container">
-      <p class="home-link-logo"><a href="../">THE PLANETS</a></p>
+      <p class="home-link-logo"><a href="../../">THE PLANETS</a></p>
 
-      <ul class="list-container">
+      <div class="list-container">
         <li class="list-item"><a href="./mercury.html">MERCURY</a></li>
         <li class="list-item"><a href="./venus.html">VENUS</a></li>
         <li class="list-item"><a href="./earth.html">EARTH</a></li>
@@ -33,7 +34,7 @@
         <li class="list-item"><a href="./saturn.html">SATURN</a></li>
         <li class="list-item"><a href="./uranus.html">URANUS</a></li>
         <li class="list-item"><a href="./neptune.html">NEPTUNE</a></li>
-      </ul>
+      </div>
 
       <button id="hamburguer-menu" onclick="openMenu()">
         <span class="material-symbols-outlined white size-32">
@@ -43,23 +44,130 @@
 
 
     </nav>
-    <section class="menu-overriding-page hide">
-      <li class="list-item"><a href="./mercury.html">MERCURY</a></li>
-      <li class="list-item"><a href="./venus.html">VENUS</a></li>
-      <li class="list-item"><a href="./earth.html">EARTH</a></li>
-      <li class="list-item"><a href="./mars.html">MARS</a></li>
-      <li class="list-item"><a href="./jupiter.html">JUPITER</a></li>
-      <li class="list-item"><a href="./saturn.html">SATURN</a></li>
-      <li class="list-item"><a href="./uranus.html">URANUS</a></li>
-      <li class="list-item"><a href="./neptune.html">NEPTUNE</a></li>
+    <section class="menu-overriding-page">
+      <li class="list-item">
+        <a href="./mercury.html">MERCURY</a>
+      </li>
+      <li class="list-item">
+        <a href="./venus.html">VENUS</a>
+      </li>
+      <li class="list-item">
+        <a href="./earth.html">EARTH</a>
+      </li>
+      <li class="list-item">
+        <a href="./mars.html">MARS</a>
+      </li>
+      <li class="list-item">
+        <a href="./jupiter.html">JUPITER</a>
+      </li>
+      <li class="list-item">
+        <a href="./saturn.html">SATURN</a>
+      </li>
+      <li class="list-item">
+        <a href="./uranus.html">URANUS</a>
+      </li>
+      <li class="list-item">
+        <a href="./neptune.html">NEPTUNE</a>
+      </li>
+    </section>
+
+    <section class="informations-mobile-tab">
+      <button class="select-tab active" onclick="selectTab('overview')">
+        <div class="tab">OVERVIEW</div>
+      </button>
+      <button class="select-tab" onclick="selectTab('structure')">
+        <div class="tab">STRUCTURE</div>
+      </button>
+      <button class="select-tab" onclick="selectTab('surface')">
+        <div class="tab">SURFACE</div>
+      </button>
     </section>
   </header>
 
-  <main>
-    <h1>Earth</h1>
+  <main class="planet-content-information">
+    <section class="planet-informations-section">
+      <picture class="image-container">
+        <source srcset="mdn-logo.svg" type="image/svg" />
+        <img src="/assets/planets/planet-earth.svg" />
+      </picture>
+
+      <div class="planet-main-informations-section">
+        <section class="planet-description-informations">
+          <h1 class="planet-title">EARTH</h1>
+
+          <span class="current-description">
+            Third planet from the Sun and the only known planet to harbor life. About 29.2% of Earth's surface is land
+            with
+            remaining 70.8% is covered with water. Earth's distance from the Sun, physical properties and geological
+            history have
+            allowed life to evolve and thrive.
+          </span>
+
+          <p class="source-text">Source:
+            <a class="wikipedia-link" href="https://en.wikipedia.org/wiki/Earth" target="_blank">Wikipedia
+              <span class="material-symbols-outlined size-12">
+                open_in_new
+              </span>
+            </a>
+          </p>
+        </section>
+
+
+        <section class="change-informations-container">
+          <button class="information-button active-button" onclick="selectDescriptionType('overview')">
+            <span class="text-button">01</span>
+            <span class="text-button">OVERVIEW</span>
+          </button>
+          <button class="information-button" onclick="selectDescriptionType('internal')">
+            <span class="text-button">02</span>
+            <span class="text-button">INTERNAL STRUCTURE</span>
+          </button>
+          <button class="information-button" onclick="selectDescriptionType('surface')">
+            <span class="text-button">03</span>
+            <span class="text-button">SURFACE GEOLOGY</span>
+          </button>
+        </section>
+
+      </div>
+    </section>
+
+    <section class="cards-planet-information">
+      <div class="card-information">
+        <span class="card-title">
+          ROTATION TIME
+        </span>
+        <span class="card-value">
+          0.99 DAYS
+        </span>
+      </div>
+      <div class="card-information">
+        <span class="card-title">
+          REVOLUTION TIME
+        </span>
+        <span class="card-value">
+          365.26 DAYS
+        </span>
+      </div>
+      <div class="card-information">
+        <span class="card-title">
+          RADIUS
+        </span>
+        <span class="card-value">
+          6,371 KM
+        </span>
+      </div>
+      <div class="card-information">
+        <span class="card-title">
+          AVERAGE TEMP.
+        </span>
+        <span class="card-value">
+          16°C
+        </span>
+      </div>
+    </section>
   </main>
 
-  <script src=".scripts/index.js"></script>
+
 </body>
 
 </html>

@@ -5,7 +5,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Antonio', sans-serif;
-  background-color: rgb(7, 7, 36);
 }
 
 html {
@@ -13,11 +12,15 @@ html {
   color: white;
 }
 
+html, body {
+  background-color: rgb(7, 7, 36);
+}
+
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3em;
+  padding-inline: 3em;
   border-bottom: 1px solid #2f2e4c;
 }
 
@@ -28,16 +31,53 @@ html {
 
 .list-item {
   font-size: 1.3em;
+  padding-block: 2em;
   background-color: transparent;
+  position: relative;
+  
+}
+
+.list-item:nth-child(n)::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  display: block;
+  margin-inline: auto;
+  width: 10px;
+  height: 1px;
+  transition: all 200ms ease-in 20ms;
+}
+
+.list-item:nth-child(n):hover:before {
+  width: 100%;
+  background-color: #419EBB;
+}
+
+.list-item:nth-child(2n):hover:before {
+  background-color: #EDA249;
+}
+.list-item:nth-child(3n):hover:before {
+  background-color: #6F2ED4;
+}
+.list-item:nth-child(4n):hover:before {
+  background-color: #D83A34;
+}
+.list-item:nth-child(5n):hover:before {
+  background-color: #D86534;
+}
+.list-item:nth-child(6n):hover:before {
+  background-color: #B87D43;
+}
+.list-item:nth-child(7n):hover:before {
+  background-color: #1EC1A2;
+}
+.list-item:nth-child(8n):hover:before {
+  background-color: #2D68F0;
 }
 
 .list-item > a {
   font-family: 'League Spartan', sans-serif;
   color: #9697a8;
-}
-
-.list-item > a:hover {
-  color: #6D2ED3;
 }
 
 a {
@@ -69,7 +109,6 @@ li {
 
 #hamburguer-menu {
   display: none;
-  /* padding: 1em; */
   background-color: transparent;
   border: none;
   color: white;
@@ -94,11 +133,13 @@ li {
     transition: all 500ms ease-in-out;
     position: absolute;
     height: 0;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     width: 100%;
     padding: 0 2em;
     gap: 2em;
+    background-color: rgb(7, 7, 36);
 }
 
 .show {
@@ -116,7 +157,7 @@ li {
   flex-direction: column;
   gap: 10em;
   padding-top: 10em;
-  padding-inline: 15em;
+  padding-inline: 20em;
   padding-bottom: 5em;
 }
 
@@ -133,13 +174,19 @@ li {
 }
 
 .image-container {
-  padding-left: 15em;
+  margin: auto;
+}
+.image-container > img {
+  position: relative;
+  max-width: 45em;
+  max-height: 45em;
+  animation: planet 500ms ease-in-out 100ms 1;
 }
 
 .planet-informations-section {
   display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
   gap: 3em;
 }
 
@@ -189,7 +236,6 @@ li {
 }
 
 .active-button {
-  background-color: #6D2ED5;
 }
 
 .text-button {
@@ -202,6 +248,7 @@ li {
 
 .cards-planet-information {
   display: flex;
+  gap: 2em;
   justify-content: space-between;
 }
 
@@ -209,7 +256,7 @@ li {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  width: 20%;
+  width: 100%;
   background-color: transparent;
   border: 1px solid #2f2e4c;
   padding: 2em;
@@ -239,6 +286,7 @@ li {
   width: 30%;
   border-bottom: 5px solid transparent;
   transition: border ease-in 0.2s;
+  background-color: transparent;
 }
 
 .tab {
@@ -250,8 +298,6 @@ li {
 }
 
 .active {
-  border: 0;
-  border-bottom: 5px solid #6235B1;
 }
 
 /* Media queries */
@@ -324,10 +370,15 @@ li {
   }
   .nav-container {
     flex-direction: row;
+    padding: 3em;
   }
 
   .list-container{
     display: none;
+  }
+
+  .list-item {
+    padding-block: 0;
   }
 
   #hamburguer-menu {
@@ -358,10 +409,69 @@ li {
   .source-text {
     justify-content: center;
   }
+  .image-container > img {
+    animation: planet-mobile 500ms ease-in-out 100ms 1;
+  }
 }
 
 @media (max-width: 500px) {
   .card-value {
     font-size: 1.6em;
+  }
+}
+
+/* Animations */
+
+@keyframes planet {
+  0% {
+    visibility: hidden;
+    left: 20em;
+    opacity: 0%;
+  }
+
+  70% {
+    visibility: visible;
+    opacity: 70%;
+  }
+
+  100% {
+    left: 0;
+    opacity: 100%;
+  }
+}
+
+@keyframes planet-mobile {
+  0% {
+    visibility: hidden;
+      bottom: 5em;
+      opacity: 0%;
+  }
+    70% {
+      visibility: visible;
+      opacity: 70%;
+    }
+  
+    100% {
+      bottom: 0;
+      opacity: 100%;
+    }
+}
+
+@keyframes top-border-width {
+  0% {
+    width: 1em;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes top-border-back {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
   }
 }
