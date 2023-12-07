@@ -66,7 +66,7 @@ function selectDescriptionType(typeName) {
 
 window.selectTab = selectTab;
 
-window.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', (event) => {
   const currentRoute = window.location.pathname.replace('/planet/', '').replace('.html', '');
 
   for (var tab of currentTabs()) {
