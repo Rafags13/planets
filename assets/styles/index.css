@@ -5,7 +5,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Antonio', sans-serif;
-  background-color: black;
 }
 
 html {
@@ -13,11 +12,15 @@ html {
   color: white;
 }
 
+html, body {
+  background-color: rgb(7, 7, 36);
+}
+
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3em;
+  padding-inline: 3em;
   border-bottom: 1px solid #2f2e4c;
 }
 
@@ -28,18 +31,57 @@ html {
 
 .list-item {
   font-size: 1.3em;
+  padding-block: 2em;
+  background-color: transparent;
+  position: relative;
+  
 }
 
-.home-link-logo {
-  font-size: 2.5em;
-  font-weight: 500;
-  letter-spacing: 1px;
+.list-item:nth-child(n)::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  display: block;
+  margin-inline: auto;
+  width: 10px;
+  height: 1px;
+  transition: all 200ms ease-in 20ms;
+}
+
+.list-item:nth-child(n):hover:before {
+  width: 100%;
+  background-color: #419EBB;
+}
+
+.list-item:nth-child(2n):hover:before {
+  background-color: #EDA249;
+}
+.list-item:nth-child(3n):hover:before {
+  background-color: #6F2ED4;
+}
+.list-item:nth-child(4n):hover:before {
+  background-color: #D83A34;
+}
+.list-item:nth-child(5n):hover:before {
+  background-color: #D86534;
+}
+.list-item:nth-child(6n):hover:before {
+  background-color: #B87D43;
+}
+.list-item:nth-child(7n):hover:before {
+  background-color: #1EC1A2;
+}
+.list-item:nth-child(8n):hover:before {
+  background-color: #2D68F0;
+}
+
+.list-item > a {
+  font-family: 'League Spartan', sans-serif;
+  color: #9697a8;
 }
 
 a {
-  font-family: 'League Spartan', sans-serif;
   text-decoration: none;
-  color: #9697a8;
   font-weight: 700;
   letter-spacing: 1px;
   transition: color .15s ease-out;
@@ -49,13 +91,24 @@ li {
   list-style-type: none;
 }
 
-a:hover {
-  color: #6D2ED3;
+.home-link-logo > a{
+  font-size: 2.5em;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.current-description {
+  font-weight: 300;
+  font-size: 2em;
+  width: 20em;
+  line-height: 1.25;
+  color: #C1C1D8;
+  font-family: 'League Spartan', sans-serif;
 }
 
 #hamburguer-menu {
   display: none;
-  /* padding: 1em; */
   background-color: transparent;
   border: none;
   color: white;
@@ -69,22 +122,29 @@ a:hover {
   font-size: 3.2rem;
 }
 
+.material-symbols-outlined.size-12 {
+  font-size: 0.8em;
+}
+
 .menu-overriding-page {
-  flex-direction: column;
-  position: absolute;
-  background-color: black;
-  padding: 2em;
-  gap: 2em;
-  width: 100%;
-  height: calc(100% - (2*(3em) + 3.2rem));
+  overflow: hidden;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
+    position: absolute;
+    height: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 2em;
+    gap: 2em;
+    background-color: rgb(7, 7, 36);
 }
 
 .show {
-  display: flex;
-}
-
-.hide {
-  display: none;
+  height: 35em;
+  padding: 2em;
 }
 
 .background-ative {
@@ -92,9 +152,163 @@ a:hover {
   background-color: #6F2ED4;
 }
 
+.planet-content-information {
+  display: flex;
+  flex-direction: column;
+  gap: 10em;
+  padding-top: 10em;
+  padding-inline: 20em;
+  padding-bottom: 5em;
+}
+
+.planet-main-informations-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
+
+.planet-description-informations {
+  display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+
+.image-container {
+  margin: auto;
+}
+.image-container > img {
+  position: relative;
+  max-width: 45em;
+  max-height: 45em;
+  animation: planet 500ms ease-in-out 100ms 1;
+}
+
+.planet-informations-section {
+  display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  gap: 3em;
+}
+
+.planet-title {
+  font-size: 6.4em;
+}
+
+.source-text {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5em;
+  color: rgb(92, 92, 131);
+  font-size: 1.8em;
+  font-family: 'League Spartan', sans-serif;
+}
+
+.wikipedia-link {
+  color: #7C7D93;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.change-informations-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.information-button {
+  display: flex;
+  background-color: transparent;
+  border: 1px solid hsl(242, 25%, 24%);
+  padding-inline: 2em;
+  padding-block: 1em;
+  color: white;
+  font-family: 'League Spartan', sans-serif;
+  width: 100%;
+  text-align: left;
+  gap: 2em;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.information-button:hover {
+  cursor: pointer;
+  background-color: rgba(47, 46, 77, 0.5);
+}
+
+.active-button {
+}
+
+.text-button {
+  color: white;
+  font-weight: 500;
+  background-color: transparent;
+  font-family: 'League Spartan', sans-serif;
+  letter-spacing: 0.2em;
+}
+
+.cards-planet-information {
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;
+}
+
+.card-information {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid #2f2e4c;
+  padding: 2em;
+}
+
+.card-title {
+  color: #7C7D93;
+  font-weight: bold;
+  font-size: 1.5em;
+  font-family: 'League Spartan', sans-serif;
+}
+
+.card-value {
+  font-size: 3.2em;
+}
+
+.informations-mobile-tab {
+  display: none;
+  border: 1px solid #2f2e4c;
+  justify-content: space-between;
+  padding-inline: 2em;
+}
+
+.select-tab {
+  border: none;
+  color: white;
+  width: 30%;
+  border-bottom: 5px solid transparent;
+  transition: border ease-in 0.2s;
+  background-color: transparent;
+}
+
+.tab {
+  font-family: 'League Spartan', sans-serif;
+  text-align: center;
+  padding-block: 2em calc(2em + 5px);
+  letter-spacing: 0.2em;
+  
+}
+
+.active {
+}
+
 /* Media queries */
 
-@media (max-width: 1100px) {
+@media (max-width: 1500px) {
+  .image-container {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 1200px) {
   .nav-container {
     flex-direction: column;
     gap: 3.5em;
@@ -106,19 +320,158 @@ a:hover {
     justify-content: center;
   }
 
+  .image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10em;
+  }
+
+  .planet-informations-section {
+    flex-direction: column;
+  }
+
+  .planet-main-informations-section {
+    flex-direction: row;
+  }
+
+  .change-informations-container {
+    align-self: center;
+    width: 100%;
+  }
   
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
+  .planet-content-information {
+      padding-inline: 2em;
+    }
+  .planet-main-informations-section {
+    flex-direction: column;
+  }
+  .current-description{
+    width: 100%;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  .image-container>img {
+    height: 70vw;
+    width: 70vw;
+  }
+  
+}
+
+@media (max-width: 768px) {
+  .planet-content-information {
+    gap: 2em;
+    padding-top: 5em;
+  }
+  .image-container {
+    margin-bottom: 2em;
+  }
   .nav-container {
     flex-direction: row;
+    padding: 3em;
   }
 
   .list-container{
     display: none;
   }
 
+  .list-item {
+    padding-block: 0;
+  }
+
   #hamburguer-menu {
     display: flex;
+  }
+
+  .change-informations-container {
+    display: none;
+  }
+  .cards-planet-information {
+    flex-direction: column;
+  }
+  .card-information {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .informations-mobile-tab {
+    display: flex;
+  }
+  .planet-title {
+    text-align: center;
+  }
+  .current-description {
+    text-align: center;
+  }
+  .source-text {
+    justify-content: center;
+  }
+  .image-container > img {
+    animation: planet-mobile 500ms ease-in-out 100ms 1;
+  }
+}
+
+@media (max-width: 500px) {
+  .card-value {
+    font-size: 1.6em;
+  }
+}
+
+/* Animations */
+
+@keyframes planet {
+  0% {
+    visibility: hidden;
+    left: 20em;
+    opacity: 0%;
+  }
+
+  70% {
+    visibility: visible;
+    opacity: 70%;
+  }
+
+  100% {
+    left: 0;
+    opacity: 100%;
+  }
+}
+
+@keyframes planet-mobile {
+  0% {
+    visibility: hidden;
+      bottom: 5em;
+      opacity: 0%;
+  }
+    70% {
+      visibility: visible;
+      opacity: 70%;
+    }
+  
+    100% {
+      bottom: 0;
+      opacity: 100%;
+    }
+}
+
+@keyframes top-border-width {
+  0% {
+    width: 1em;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes top-border-back {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
   }
 }
