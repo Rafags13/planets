@@ -17,11 +17,14 @@
     href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@500;700&display=swap"
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-  <script type="module" src="scripts/index.js"></script>
+  <script type="module" src="scripts/index.js">
+    // import {} from '..'
+  </script>
 
 </head>
 
 <body>
+  <canvas id="stars-background"></canvas>
   <header>
     <nav class="nav-container">
       <p class="home-link-logo"><a href="./">THE PLANETS</a></p>
@@ -120,7 +123,7 @@
             <span class="text-button">01</span>
             <span class="text-button">OVERVIEW</span>
           </button>
-          <button class="information-button" onclick="selectDescriptionType('internal')">
+          <button class="information-button" onclick="selectDescriptionType('structure')">
             <span class="text-button">02</span>
             <span class="text-button">INTERNAL STRUCTURE</span>
           </button>

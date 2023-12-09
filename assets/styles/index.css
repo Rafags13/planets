@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Antonio', sans-serif;
+  font-family: 'Antonio', sans-serif;  
 }
 
 html {
@@ -16,7 +16,14 @@ html, body {
   background-color: rgb(7, 7, 36);
 }
 
+#stars-background {
+  position: absolute;
+  z-index: 1;
+}
+
 .nav-container {
+  position: relative;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,7 +41,6 @@ html, body {
   padding-block: 2em;
   background-color: transparent;
   position: relative;
-  
 }
 
 .list-item:nth-child(n)::before {
@@ -43,10 +49,12 @@ html, body {
   content: "";
   display: block;
   margin-inline: auto;
-  width: 10px;
+  width: 1px;
   height: 1px;
   transition: all 200ms ease-in 20ms;
 }
+
+
 
 .list-item:nth-child(n):hover:before {
   width: 100%;
@@ -133,7 +141,7 @@ li {
     transition: all 500ms ease-in-out;
     position: absolute;
     height: 0;
-    z-index: 1;
+    z-index: 1000;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -153,6 +161,8 @@ li {
 }
 
 .planet-content-information {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 10em;
@@ -311,7 +321,8 @@ li {
 @media (max-width: 1200px) {
   .nav-container {
     flex-direction: column;
-    gap: 3.5em;
+    gap: 1.5em;
+    padding-block: 1.5em;
     
   }
 
@@ -334,6 +345,11 @@ li {
     flex-direction: row;
   }
 
+  .current-description {
+    width: 100%;
+    /* max-width: 20em; */
+  }
+
   .change-informations-container {
     align-self: center;
     width: 100%;
@@ -350,6 +366,7 @@ li {
   }
   .current-description{
     width: 100%;
+    max-width: 100%;
     text-align: justify;
     text-justify: inter-word;
   }
