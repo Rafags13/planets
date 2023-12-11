@@ -59,10 +59,10 @@ const setImageByParam = (param) => {
 
   switch (param) {
     case 'overview':
-      image.src = `../assets/images/planet-${currentPlanet}.svg`;
+      image.src = `/assets/images/planet-${currentPlanet}.svg`;
       break;
     case 'structure':
-      image.src = `../assets/images/internal/planet-${currentPlanet}-internal.svg`;
+      image.src = `/assets/images/internal/planet-${currentPlanet}-internal.svg`;
       break;
   }
 
