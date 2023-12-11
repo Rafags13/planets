@@ -33,7 +33,9 @@ function currentTabs() {
 function selectTab(tabName) {
   const tabs = currentTabs();
 
+  console.log(tabName)
   const currentRoute = getCurrentRoute();
+
 
   setImageByParam(tabName);
 
