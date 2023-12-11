@@ -1,7 +1,6 @@
 
 
 import { openMenu } from '../modules/navbarState.js';
-import data from '../assets/data/database.json' assert { type: 'json' };
 
 window.openMenu = openMenu;
 window.selectDescriptionType = selectDescriptionType;
@@ -101,18 +100,6 @@ function setCanvasSize() {
   canvas.width = documentWidth;
 }
 
-function quadrantsOfScreen() {
-  const gap = 10;
-  const documentWidth = window.outerWidth;
-  var bodyHeight = document.body.scrollHeight;
-
-  const firstPoint = { width: documentWidth / 2 - gap, height: bodyHeight / 2 - gap };
-  const secondPoint = { width: documentWidth / 2 + gap, height: bodyHeight / 2 - gap };
-  const thirdPoint = { width: documentWidth / 2 - gap, height: bodyHeight / 2 + gap };
-  const fourthPoint = { width: documentWidth / 2 + gap, height: bodyHeight / 2 + gap };
-
-  return {firstPoint, secondPoint, thirdPoint, fourthPoint};
-}
 
 window.addEventListener('DOMContentLoaded', (event) => {
   const currentRoute = getCurrentRoute();
@@ -121,7 +108,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
   currentDescriptionButtons()[0].setAttribute('style', `background-color: ${planetBorderColors[currentRoute]}`);
 
   setCanvasSize();
-  createStar();
 
   // const { firstPoint, secondPoint, thirdPoint, fourthPoint } = quadrantsOfScreen();
 });
@@ -131,62 +117,6 @@ function returnCurrentContextFromCanvas() {
   const ctx = canvas.getContext("2d");
 
   return ctx;
-}
-
-class Rectangle {
-  constructor(height, width) {
-    this.height = height;
-    this.width = width;
-  }
-}
-
-function calculatePositionByInitialStarPosition(positionX, positionY) {
-  var bodyHeight = document.body.scrollHeight;
-  var spareHeight = bodyHeight - positionY;
-  var spareHypotenuse = Math.sqrt((positionX * positionX) + (spareHeight * spareHeight));
-  var realHypotenuse = (positionY * spareHypotenuse) / spareHeight;
-  var realWidth = (positionX * realHypotenuse) / spareHypotenuse;  
-  var valueToSumInX = realWidth / realHypotenuse;
-  var valueToSumInY = positionY / realHypotenuse;
-  
-  return {valueToSumInX, valueToSumInY};
-}
-class Star {
-  constructor(positionX, positionY, zIndex) {
-    this.positionX = positionX;
-    this.positionY = positionY;
-    this.zIndex = zIndex;
-  }
-
-  createStar() {
-    // console.log('teste')
-    const context = returnCurrentContextFromCanvas();
-    const documentWidth = window.innerWidth;
-    const documentHeight = document.body.scrollHeight;
-    let {valueToSumInX, valueToSumInY} = calculatePositionByInitialStarPosition(this.positionX, this.positionY);
-    this.positionX += valueToSumInX;
-    this.positionY -= valueToSumInY;
-    this.zIndex += 0.015;
-    context.clearRect(0, 0, documentWidth, documentHeight);
-    context.beginPath();
-    context.fillStyle = "white";
-    context.arc(this.positionX, this.positionY, this.zIndex, 0, 2 * Math.PI);
-    context.fill();
-    context.closePath();
-
-    // requestAnimationFrame(this.createStar);
-    // If you uncomment this above live, you'll see the hell inside your cpu
-    // good luck
-  }
-}
-
-
-function createStar() {
-  let starOne = new Star(1000, 768, 5);
-
-  
-  starOne.createStar();
-  
 }
 window.addEventListener('resize', () => {
   setCanvasSize();
