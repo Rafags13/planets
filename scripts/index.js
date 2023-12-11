@@ -1,5 +1,3 @@
-
-
 import { openMenu } from '../modules/navbarState.js';
 
 window.openMenu = openMenu;
@@ -52,20 +50,19 @@ function selectTab(tabName) {
 }
 
 const setImageByParam = (param) => {
-  let image = document.querySelector('.image-container img');
-  
+  let image = document.querySelector('.image-container img');  
   let currentPlanet = getCurrentRoute().replace('/index', '').replace('/', '');
+  const correctPathStart = currentPlanet === '' ? '' : '../'
   currentPlanet = currentPlanet === '' ? 'earth' : currentPlanet;
 
   switch (param) {
     case 'overview':
-      image.src = `/assets/images/planet-${currentPlanet}.svg`;
+      image.src = `${correctPathStart}assets/images/planet-${currentPlanet}.svg`;
       break;
     case 'structure':
-      image.src = `/assets/images/internal/planet-${currentPlanet}-internal.svg`;
+      image.src = `${correctPathStart}/assets/images/internal/planet-${currentPlanet}-internal.svg`;
       break;
   }
-
 }
 
 function currentDescriptionButtons() {
@@ -91,33 +88,9 @@ function selectDescriptionType(typeName) {
   }
 }
 
-function setCanvasSize() {
-  var canvas = document.getElementById('stars-background');
-  const documentWidth = window.outerWidth;
-  var bodyHeight = document.body.scrollHeight;
-
-  canvas.height = bodyHeight;
-  canvas.width = documentWidth;
-}
-
-
 window.addEventListener('DOMContentLoaded', (event) => {
   const currentRoute = getCurrentRoute();
 
   currentTabs()[0].setAttribute('style', `border-bottom-color: ${planetBorderColors[currentRoute]}`);
   currentDescriptionButtons()[0].setAttribute('style', `background-color: ${planetBorderColors[currentRoute]}`);
-
-  setCanvasSize();
-
-  // const { firstPoint, secondPoint, thirdPoint, fourthPoint } = quadrantsOfScreen();
-});
-
-function returnCurrentContextFromCanvas() {
-  var canvas = document.getElementById('stars-background');
-  const ctx = canvas.getContext("2d");
-
-  return ctx;
-}
-window.addEventListener('resize', () => {
-  setCanvasSize();
 });
