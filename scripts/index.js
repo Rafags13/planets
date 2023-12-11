@@ -52,7 +52,7 @@ function selectTab(tabName) {
 const setImageByParam = (param) => {
   let image = document.querySelector('.image-container img');  
   let currentPlanet = getCurrentRoute().replace('/index', '').replace('/', '');
-  const correctPathStart = currentPlanet === '' ? '' : '../'
+  const correctPathStart = currentPlanet === '' ? './' : '../'
   currentPlanet = currentPlanet === '' ? 'earth' : currentPlanet;
 
   switch (param) {
